@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love You</title>
+    <style>
+        *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        transition: all 1s;
+        }
+        body{
+            padding: 20px;
+            background-image: url("back3.webp");
+        }
+        #headings{
+            color: white;
+            font-size: 50px;
+            font-weight:900;
+            background-color: rgb(255, 236, 126);
+            width:85%;
+            border-radius: 20px;
+            margin-top:60px ;
+            margin-left: 120px;
+            border: 2px solid aqua;
+            padding: 10px;
+        }
+        #div1{
+            margin-top: 60px;
+            display: flex;
+        }
+        main{
+            width: 500px;
+            height: 600px;
+            box-shadow: 0px 0px 61px rgb(109, 194, 198);
+            margin-left: 180px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid gold;
+        }
+        .slider{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        #leftarrow,#rightarrow{
+            margin-top: 250px;
+        }
+        #leftarrow{
+            margin-left: 60px;
+        }
+        #rightarrow{
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+   <div id="headings">
+        Srryy for not Spending enough time with you
+    </div>
+    <div id="div1">
+        <div id="leftarrow">
+            <img src="leftarrow.png" onclick="Previous()" alt="" >
+        </div>
+        <div>
+        <main>
+            <img src="img1.jpg" alt="" class="slider">
+            <img src="img2.jpg" alt="" class="slider">
+            <img src="img3.jpg" alt="" class="slider">
+            <img src="img4.jpg" alt="" class="slider">
+            <img src="img5.jpg" alt="" class="slider">
+            <img src="quote.png" alt="" class="slider">
+
+        </main>
+        </div>
+        <div id="rightarrow">
+            <img src="right arrow.png" onclick="Next()" alt="" >
+        </div>
+    </div>
+    <script>
+        alert("Love You my Cutiepie")
+        const slides=document.querySelectorAll(".slider");
+var counter=0;
+slides.forEach(
+    (slider,index) =>
+    slider.style.left =`${(index*100)}%`
+)
+const Previous=()=>{
+    counter--;
+    if(counter<0){
+        counter=slides.length-1;
+    }
+    Sliderun();
+}
+const Next=()=>{
+    counter++;
+    if(counter>slides.length-1){
+        counter=0;
+    }
+    Sliderun();
+}
+const Sliderun=()=>{
+    slides.forEach(
+        (slider)=>{
+            slider.style.transform=`translateX(-${counter*100}%)`
+        }
+    )
+}
+    </script>
+</body>
+</html>
